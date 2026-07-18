@@ -36,19 +36,19 @@ Obiettivo: scheletro Clean Architecture funzionante, senza feature di business a
 - [x] Definire interfacce servizi di dominio (`IAssignmentService`, `ISlaCalculator`, `INotificationService`, `IAiClassificationService`)
 
 **Progetto Infrastructure**
-- [ ] Creare progetto `Infrastructure`, riferimento a `Core`
-- [ ] Configurare `DbContext` EF Core con isolamento multi-tenant (filtro globale per `TenantId`)
-- [ ] Creare mapping/configurazioni entità (Fluent API)
-- [ ] Prima migrazione EF Core e provisioning database SQL Server
-- [ ] Implementare repository concreti
+- [x] Creare progetto `Infrastructure`, riferimento a `Core`
+- [x] Configurare `DbContext` EF Core con isolamento multi-tenant (query filter globale su `TenantId`, propagato anche a `TicketMessage`/`Attachment` via relazione con `Ticket`)
+- [x] Creare mapping/configurazioni entità (Fluent API) per tutte e 5 le entità
+- [x] Prima migrazione EF Core (`InitialCreate`) e provisioning database SQL Server locale (`AiHelpdeskDb` su `LAPTOP-FQODI7UK\sql2022`), connection string in User Secrets
+- [x] Implementare repository concreti (`TenantRepository`, `UserRepository`, `TicketRepository`)
 - [ ] Implementare servizio invio email (per notifiche)
 
 **Progetto API**
-- [ ] Creare progetto `API` (Controller-based Web API, .NET 10), riferimenti a `Core` e `Infrastructure`
-- [ ] Configurare Dependency Injection, `appsettings` per ambiente
-- [ ] Configurare autenticazione/autorizzazione (in base a decisione Fase 0)
-- [ ] Configurare middleware multi-tenant (risoluzione tenant da claim/token)
-- [ ] Configurare Swagger/OpenAPI
+- [x] Creare progetto `API` (Controller-based Web API, .NET 10), riferimenti a `Core` e `Infrastructure`
+- [x] Configurare Dependency Injection (DbContext, repository) e connection string via User Secrets in dev
+- [ ] Configurare autenticazione/autorizzazione (ASP.NET Identity + JWT, decisione Fase 0)
+- [ ] Configurare middleware multi-tenant: sostituire `NullCurrentTenantProvider` con provider basato sui claim JWT
+- [x] Configurare Swagger/OpenAPI (scaffold di default del template)
 
 **Progetto Client**
 - [x] Creare progetto Blazor WASM
