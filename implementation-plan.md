@@ -17,9 +17,11 @@ Obiettivo: sbloccare le aree ancora aperte nello scope prima di iniziare a scriv
 - [x] Integrazioni con sistemi esistenti: nessuna per ora, architettura API-based non preclusiva
 - [x] Registrazione clienti: self-signup con verifica email
 - [x] Policy privacy/GDPR (requisiti minimi): retention allegati, consenso in fase di registrazione, diritto di cancellazione account — dettaglio implementativo in Fase 6
-- [ ] Creare repository Git e struttura solution (.sln) multi-progetto
+- [x] Creare repository Git e struttura solution (.sln) multi-progetto — repo su GitHub (`alessandroPicchiotti/-AI-Helpdesk`), solution `AiHelpdesk` con progetti `AiHelpdesk.Core`, `AiHelpdesk.Infrastructure`, `AiHelpdesk.Api` (Web API a controller), `AiHelpdesk.Client` (Blazor WASM), riferimenti tra progetti impostati secondo Clean Architecture
 - [ ] Configurare CI di base (build + test) e ambienti (dev/staging)
 - [ ] Configurare file `.env` con `OPENROUTER_API_KEY` e caricamento sicuro della configurazione
+
+> **Nota tecnica**: il pacchetto `Microsoft.OpenApi` 2.0.0 (dipendenza transitiva di `Microsoft.AspNetCore.OpenApi` 10.0.10 nel progetto API) ha una vulnerabilità nota di gravità alta ([GHSA-v5pm-xwqc-g5wc](https://github.com/advisories/GHSA-v5pm-xwqc-g5wc)). La versione corretta è solo nella serie 3.x, non ancora compatibile con il generatore di codice di `Microsoft.AspNetCore.OpenApi` per .NET 10 (nessuna versione più recente disponibile al momento). Da monitorare e aggiornare non appena Microsoft rilascia una versione compatibile.
 
 ---
 

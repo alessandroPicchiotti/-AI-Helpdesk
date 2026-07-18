@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AiHelpdesk.Api/AiHelpdesk.Api.csproj" />
+    <Project Path="src/AiHelpdesk.Client/AiHelpdesk.Client.csproj" />
+    <Project Path="src/AiHelpdesk.Core/AiHelpdesk.Core.csproj" />
+    <Project Path="src/AiHelpdesk.Infrastructure/AiHelpdesk.Infrastructure.csproj" />
+  </Folder>
+</Solution>
