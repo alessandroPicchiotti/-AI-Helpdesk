@@ -29,11 +29,11 @@ Obiettivo: sbloccare le aree ancora aperte nello scope prima di iniziare a scriv
 Obiettivo: scheletro Clean Architecture funzionante, senza feature di business ancora complete.
 
 **Progetto Core**
-- [ ] Creare progetto `Core` (class library, nessuna dipendenza esterna)
-- [ ] Definire entità di dominio base: `Tenant`, `User` (con ruoli), `Ticket`, `TicketMessage`, `Attachment`
-- [ ] Definire enum: `TicketAssignmentStatus` (NonAssegnato/Assegnato/Riassegnazione), `TicketWorkStatus` (InLavorazione/InAttesaCliente/Risolto/Chiuso/Riaperto), `TicketPriority` (Alta/Media/Normale), `UserRole` (AdminPiattaforma/AdminTenant/ManageHelpdesk/Addetto/Cliente)
-- [ ] Definire interfacce repository (`ITicketRepository`, `IUserRepository`, `ITenantRepository`, ecc.)
-- [ ] Definire interfacce servizi di dominio (`IAssignmentService`, `ISlaCalculator`, `INotificationService`, `IAiClassificationService`)
+- [x] Creare progetto `Core` (class library, nessuna dipendenza esterna)
+- [x] Definire entità di dominio base: `Tenant`, `User` (con ruoli), `Ticket`, `TicketMessage`, `Attachment`
+- [x] Definire enum: `TicketAssignmentStatus` (NonAssegnato/Assegnato/Riassegnazione), `TicketWorkStatus` (InLavorazione/InAttesaCliente/Risolto/Chiuso/Riaperto), `TicketPriority` (Normale/Media/Alta), `UserRole` (AdminPiattaforma/AdminTenant/ManageHelpdesk/Addetto/Cliente), `TicketMessageChannel` (Email/Ai/Chat)
+- [x] Definire interfacce repository (`ITicketRepository`, `IUserRepository`, `ITenantRepository`)
+- [x] Definire interfacce servizi di dominio (`IAssignmentService`, `ISlaCalculator`, `INotificationService`, `IAiClassificationService`)
 
 **Progetto Infrastructure**
 - [ ] Creare progetto `Infrastructure`, riferimento a `Core`
@@ -51,10 +51,10 @@ Obiettivo: scheletro Clean Architecture funzionante, senza feature di business a
 - [ ] Configurare Swagger/OpenAPI
 
 **Progetto Client**
-- [ ] Creare progetto Blazor WASM
-- [ ] Integrare MudBlazor (ultima versione), tema base
+- [x] Creare progetto Blazor WASM
+- [x] Integrare MudBlazor (ultima versione, 9.7.0), tema base con `MudThemeProvider`/`MudLayout`
 - [ ] Configurare `HttpClient` verso API e gestione token di autenticazione
-- [ ] Layout applicativo base (navigazione, autenticazione)
+- [ ] Layout applicativo base (navigazione, autenticazione) — struttura scaffold presente, contenuti reali in Fase 2/3
 
 ---
 
