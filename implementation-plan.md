@@ -46,7 +46,7 @@ Obiettivo: scheletro Clean Architecture funzionante, senza feature di business a
 **Progetto API**
 - [x] Creare progetto `API` (Controller-based Web API, .NET 10), riferimenti a `Core` e `Infrastructure`
 - [x] Configurare Dependency Injection (DbContext, repository) e connection string via User Secrets in dev
-- [ ] Configurare autenticazione/autorizzazione (ASP.NET Identity + JWT, decisione Fase 0)
+- [x] Configurare autenticazione/autorizzazione (ASP.NET Identity + JWT, decisione Fase 0) — `ApplicationUser : IdentityUser<Guid>` (Infrastructure) per le credenziali, `AppDbContext` esteso a `IdentityUserContext<ApplicationUser, Guid>`, `IJwtTokenGenerator`/`JwtTokenGenerator` per l'emissione del JWT con claim custom `TenantId`/`Ruolo`, pipeline API con `AddAuthentication().AddJwtBearer()` + `UseAuthentication()`. Verificato con endpoint dev-only `/api/dev/token` (401 senza token, 200 con token su endpoint `[Authorize]`)
 - [ ] Configurare middleware multi-tenant: sostituire `NullCurrentTenantProvider` con provider basato sui claim JWT
 - [x] Configurare Swagger/OpenAPI (scaffold di default del template)
 

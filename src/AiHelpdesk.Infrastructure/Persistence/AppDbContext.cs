@@ -1,14 +1,18 @@
 using AiHelpdesk.Core.Entities;
 using AiHelpdesk.Core.Interfaces.Services;
+using AiHelpdesk.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AiHelpdesk.Infrastructure.Persistence;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options, ICurrentTenantProvider currentTenantProvider)
-    : DbContext(options)
+    : IdentityUserContext<ApplicationUser, Guid>(options)
 {
     public DbSet<Tenant> Tenants => Set<Tenant>();
-    public DbSet<User> Users => Set<User>();
+
+    /// <summary>Utenti di dominio (Core.User). Nasconde deliberatamente la DbSet&lt;ApplicationUser&gt; di IdentityUserContext.</summary>
+    public new DbSet<User> Users => Set<User>();
     public DbSet<Ticket> Tickets => Set<Ticket>();
     public DbSet<TicketMessage> TicketMessages => Set<TicketMessage>();
     public DbSet<Attachment> Attachments => Set<Attachment>();
